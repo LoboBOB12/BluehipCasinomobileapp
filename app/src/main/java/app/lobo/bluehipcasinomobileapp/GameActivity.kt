@@ -1,5 +1,6 @@
 package app.lobo.bluehipcasinomobileapp
 
+import android.content.Intent
 import android.graphics.Point
 import androidx.appcompat.app.AppCompatActivity
 
@@ -142,8 +143,9 @@ class GameActivity : AppCompatActivity() {
 
     private fun endGame() {
         countDownTimer.cancel()
-
+        intent.putExtra("число", score)
         Toast.makeText(this, "Game Over! Your score: $score", Toast.LENGTH_SHORT).show()
-        finish()
+        val intent = Intent(this, finnish::class.java)
+        startActivity(intent)
     }
 }
